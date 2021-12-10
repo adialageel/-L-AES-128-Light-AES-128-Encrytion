@@ -1,0 +1,25 @@
+40711a3a27dc6566ec920d9642cd257d3354e1b402143a6e744c67aa20e6fb5c2121b38dbdca0848950f2f8cb5f70c
+this was the original text
+we change the first byte '4' to '5' and checked the results
+50711a3a27dc6566ec920d9642cd257d3354e1b402143a6e744c67aa20e6fb5c2121b38dbdca0848950f2f8cb5f70c
+when decrypting using CFB mode we got the following result
+44	1d	df	a3	b1	23	17	d0	d1	d7	c7	67	2f	59	f4	2e
+25	74	65	73	74	20	6d	65	73	73	61	67	65	20	66	6f
+72	20	41	64	69	20	41	6c	61	67	65	65	6c	21	21
+in text it is: D	.	ß	£	±	#	.	Ð	Ñ	×	Ç	g	/	Y	ô	.
+%	t	e	s	t		m	e	s	s	a	g	e		f	o
+r		A	d	i		A	l	a	g	e	e	l	!	!
+
+We can see that in the CFB mode introduction of a bit change in the ciphertext was propogated to the next 16 bytes also
+whereas the phrase "test message for Adi Alageel!!" remains the same
+
+When we decrypted it using the OFB mode we got the following result
+44	00	33	fe	0c	12	a3	a3	7a	3e	2b	c2	7e	44	9b	51
+ec	88	ad	e2	0d	84	e3	8d	41	84	09	28	a0	9f	c1	97
+6d	c1	00	30	7c	69	44	1e	ed	90	5e	5c	4c	64	7c
+in text it is: D	.	3	þ	.	.	£	£	z	>	+	Â	~	D	.	Q
+ì		.	â	.	.	ã		A	.	.	(	 	.	Á	.
+m	Á	.	0	|	i	D	.	í		^	\	L	d	|
+
+We can see that in the case of OFB the single byte change is propagated in the whole plaintext and now the plaintext
+is not recognizable
