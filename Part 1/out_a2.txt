@@ -1,0 +1,10 @@
+Number of different bits in round 1 is: 8
+Number of different bits in round 2 is: 6
+Number of different bits in round 3 is: 4
+Number of different bits in round 4 is: 5
+Number of different bits in round 5 is: 5
+Number of different bits in round 6 is: 4
+Number of different bits in round 7 is: 5
+Number of different bits in round 8 is: 2
+Number of different bits in round 9 is: 2
+Number of different bits in round 10 is: 3
